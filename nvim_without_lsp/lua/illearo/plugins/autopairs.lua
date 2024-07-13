@@ -1,1 +1,1 @@
-/home/illearo/repo/configs/nvim/lua/illearo/plugins/autopairs.lua
+../../../../nvim/lua/illearo/plugins//autopairs.lua

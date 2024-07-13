@@ -1,1 +1,1 @@
-/home/illearo/repo/configs/nvim/lua/illearo/plugins/telescope.lua
+../../../../nvim/lua/illearo/plugins//telescope.lua

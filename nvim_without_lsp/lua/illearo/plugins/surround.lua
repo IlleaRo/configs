@@ -1,1 +1,1 @@
-/home/illearo/repo/configs/nvim/lua/illearo/plugins/surround.lua
+../../../../nvim/lua/illearo/plugins//surround.lua

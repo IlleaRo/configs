@@ -1,1 +1,1 @@
-/home/illearo/repo/configs/nvim/lua/illearo/plugins/vim-maximizer.lua
+../../../../nvim/lua/illearo/plugins//vim-maximizer.lua

@@ -1,1 +1,1 @@
-/home/illearo/repo/configs/nvim/lua/illearo/plugins/wich-key.lua
+../../../../nvim/lua/illearo/plugins//wich-key.lua

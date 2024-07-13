@@ -1,1 +1,1 @@
-/home/illearo/repo/configs/nvim/lua/illearo/plugins/treesitter.lua
+../../../../nvim/lua/illearo/plugins//treesitter.lua

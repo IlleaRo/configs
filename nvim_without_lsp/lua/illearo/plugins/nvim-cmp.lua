@@ -1,1 +1,1 @@
-/home/illearo/repo/configs/nvim/lua/illearo/plugins/nvim-cmp.lua
+../../../../nvim/lua/illearo/plugins//nvim-cmp.lua

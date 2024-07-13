@@ -1,1 +1,1 @@
-/home/illearo/repo/configs/nvim/lua/illearo/plugins/colorscheme.lua
+../../../../nvim/lua/illearo/plugins//colorscheme.lua

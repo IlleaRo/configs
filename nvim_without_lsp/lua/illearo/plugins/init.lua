@@ -1,1 +1,1 @@
-/home/illearo/repo/configs/nvim/lua/illearo/plugins/init.lua
+../../../../nvim/lua/illearo/plugins//init.lua
