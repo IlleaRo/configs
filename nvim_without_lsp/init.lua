@@ -1,2 +1,1 @@
-require("illearo.core")
-require("illearo.lazy")
+../nvim/init.lua

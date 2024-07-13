@@ -1,8 +1,1 @@
-return {
-  "lukas-reineke/indent-blankline.nvim",
-  event = { "BufReadPre", "BufNewFile" },
-  main = "ibl",
-  opts = {
-    indent = { char = "┊" },
-  },
-}
+/home/illearo/repo/configs/nvim/lua/illearo/plugins/indent-blankline.lua

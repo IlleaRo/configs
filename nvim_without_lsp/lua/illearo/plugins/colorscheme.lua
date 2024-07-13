@@ -1,16 +1,1 @@
-return { 
-    "ellisonleao/gruvbox.nvim",
-    priority = 1000,
-    config = function()
-        vim.cmd("colorscheme gruvbox")
-
-
-    require("gruvbox").setup({
-        overrides = {
-            SignColumn = {bg = "#282828"},
-        }
-    })
-
-    vim.cmd("colorscheme gruvbox")
-    end
-}
+/home/illearo/repo/configs/nvim/lua/illearo/plugins/colorscheme.lua

@@ -1,6 +1,1 @@
-return {
-  "szw/vim-maximizer",
-  keys = {
-    { "<leader>sm", "<cmd>MaximizerToggle<CR>", desc = "Maximize/minimize a split" },
-  },
-}
+/home/illearo/repo/configs/nvim/lua/illearo/plugins/vim-maximizer.lua
