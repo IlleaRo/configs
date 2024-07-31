@@ -249,8 +249,8 @@ bar {
 exec mako
 exec nm-applet --no-agent
 
-bindsym --to-code Print exec grim ~/Pictures/screen-"$(date +%s)".png
-bindsym --to-code $mod+Print exec grim -g "$(slurp)" ~/Pictures/screen-"$(date +%s)".png
+bindsym --to-code Print exec grim - | wl-copy && wl-paste > ~/Pictures/screen-"$(date +%s)".png
+bindsym --to-code $mod+Print exec grim -g "$(slurp)" - | wl-copy && wl-paste > ~/Pictures/screen-"$(date +%s)".png
 
 set $swaylock swaylock -i ~/Pictures/Wallpapers/girl-reading-book.png -k -f
 
