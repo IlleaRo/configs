@@ -40,17 +40,8 @@ return {
     keys = {
       { "<leader>lg", "<cmd>LazyGit<cr>", desc = "Open lazy git" },
     },
-  },
-
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    ---@module "ibl"
-    ---@type ibl.config
-    opts = {
-      indent = { char = "┊" }
-    },
   }
+
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
   -- 	opts = {
