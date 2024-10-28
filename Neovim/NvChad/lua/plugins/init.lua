@@ -40,15 +40,15 @@ return {
     keys = {
       { "<leader>lg", "<cmd>LazyGit<cr>", desc = "Open lazy git" },
     },
-  }
+  },
 
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim", "lua", "vimdoc",
+        "html", "css", "cpp", "c"
+      },
+    },
+  },
 }
