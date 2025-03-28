@@ -1,15 +1,17 @@
-import = [
-    "~/.config/alacritty/alacritty-theme/themes/gruvbox_dark.toml",
-]
 
 [font]
 normal = { family = "FiramonoNerdFontMedium" }
 
 #normal = { family = "JetBrainsMono Nerd Font" }
 
-size = 14
+size = 13
 
 
 [window]
 blur = true
+
+[general]
+import = [
+    "~/.config/alacritty/themes/themes/gruvbox_dark.toml",
+]
 
