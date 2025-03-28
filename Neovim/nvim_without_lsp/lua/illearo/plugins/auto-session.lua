@@ -1,1 +1,0 @@
-../../../../nvim/lua/illearo/plugins//auto-session.lua

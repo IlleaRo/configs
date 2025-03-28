@@ -1,3 +1,6 @@
 [submodule "sway/alacritty/alacritty-theme"]
 	path = sway/alacritty/alacritty-theme
 	url = https://github.com/alacritty/alacritty-theme.git
+[submodule "sway/sway/autotiling"]
+	path = sway/sway/autotiling
+	url = https://github.com/nwg-piotr/autotiling.git
