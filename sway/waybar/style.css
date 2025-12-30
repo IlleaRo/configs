@@ -3,7 +3,7 @@
   border-radius: 0px;
   font-family: Firamono Nerd Font Mono Medium;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 16px;
   min-height: 0;
 }
 
@@ -52,7 +52,7 @@ tooltip {
 #date,
 #backlight,
 #idle_inhibitor {
-  margin-right: 6px;
+  margin-right: 10px;
   color: #ebdbb2;
 }
 #pulseaudio,
@@ -236,3 +236,21 @@ tooltip {
 }
 
 
+
+/* Иконки: единый шрифт и размер */
+#pulseaudio,
+#network,
+#battery,
+#backlight,
+#idle_inhibitor,
+#temperature,
+#memory,
+#cpu,
+#disk,
+#bluetooth,
+#wireplumber,
+#power-profiles-daemon,
+#tray {
+  font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", "Symbols Nerd Font";
+  font-size: 16px;
+}
