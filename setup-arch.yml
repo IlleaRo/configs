@@ -1,0 +1,86 @@
+---
+- name: Настройка рабочей станции на Arch Linux (Sway)
+  hosts: localhost
+  connection: local
+  become: yes # Выполнять через sudo
+
+  vars:
+    # Разбиваем пакеты по категориям для удобства чтения и будущей миграции
+    pkg_base:
+      - base-devel
+      - git
+      - stow
+      - curl
+      - polkit
+    
+    pkg_hardware:
+      - amd-ucode
+      - mesa
+      - vulkan-radeon
+      - libva-mesa-driver
+    
+    pkg_sway:
+      - sway
+      - swaybg
+      - swayidle
+      - swaylock
+      - waybar
+      - alacritty
+      - wofi
+      - mako
+    
+    pkg_dev_embedded:
+      - arm-none-eabi-gcc
+      - arm-none-eabi-newlib
+      - openocd
+      - stlink
+    
+    # pkg_network:
+    #   - dnsmasq
+    #   - sing-box
+    #   - wireguard-tools
+    
+    pkg_apps:
+      - obsidian
+      #- typst
+      - firefox
+
+  tasks:
+    - name: Обновление системы и установка всех пакетов (pacman)
+      pacman:
+        name: "{{ pkg_base + pkg_hardware + pkg_sway + pkg_dev_embedded + pkg_network + pkg_apps }}"
+        state: present
+        update_cache: yes
+        upgrade: yes # Эквивалент pacman -Syu
+
+    - name: Создание структуры директорий пользователя
+      become: no # Выполняем от имени обычного пользователя
+      file:
+        path: "{{ item }}"
+        state: directory
+        mode: '0755'
+      loop:
+        - ~/.config
+
+    - name: Применение конфигураций через GNU Stow
+      become: no
+      # Выполняем команду прямо из папки с плейбуком
+      shell: "stow -t ~ {{ item }}"
+      args:
+        chdir: "{{ playbook_dir }}" 
+      loop:
+        - sway
+        - waybar
+        - alacritty
+        - mako
+      register: stow_result
+      changed_when: "'creating' in stow_result.stdout or 'linking' in stow_result.stdout"
+
+    - name: Активация и запуск необходимых системных служб
+      systemd:
+        name: "{{ item }}"
+        enabled: yes
+        state: started
+      loop:
+        # - systemd-timesyncd
+        # - dnsmasq # Раскомментировать после настройки конфига
