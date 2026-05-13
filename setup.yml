@@ -1,0 +1,54 @@
+---
+- name: "Универсальная настройка рабочей станции (Arch / Ubuntu)"
+  hosts: localhost
+  connection: local
+  become: yes # По умолчанию все задачи выполняются от имени root (sudo)
+
+  tasks:
+    # --- ЭТАП 1: ПОДГОТОВКА И УСТАНОВКА ---
+
+    - name: "Загрузка специфичных для ОС списков пакетов"
+      include_vars: "vars/{{ ansible_facts['os_family'] | lower }}.yml"
+
+    - name: "Arch Linux: Обновление и установка пакетов"
+      pacman:
+        name: "{{ pkg_base + pkg_sway + pkg_work }}"
+        state: present
+        update_cache: yes
+      when: ansible_facts['os_family'] == "Archlinux"
+
+    - name: "Ubuntu: Обновление и установка пакетов"
+      apt:
+        name: "{{ pkg_base + pkg_sway + pkg_work }}"
+        state: present
+        update_cache: yes
+      when: ansible_facts['os_family'] == "Debian"
+
+
+    # --- ЭТАП 2: НАСТРОЙКА ПОЛЬЗОВАТЕЛЯ ---
+
+    - name: "Создание базовых директорий пользователя"
+      become: no # Отключаем root! Выполняем от имени текущего пользователя
+      file:
+        path: "{{ item }}"
+        state: directory
+        mode: '0755'
+      loop:
+        - ~/.config
+
+    - name: "Применение конфигураций (GNU Stow)"
+      become: no # Выполняем от имени текущего пользователя
+      shell: "stow -t ~ {{ item }}"
+      args:
+        # Эта магия говорит Ansible запускать команду stow 
+        # прямо из той папки, где лежит этот файл setup.yml
+        chdir: "{{ playbook_dir }}" 
+      loop:
+        - sway
+        - waybar
+        - alacritty
+        - mako
+      # Регистрируем вывод команды, чтобы Ansible понимал, 
+      # изменила ли она что-то (желтый цвет) или всё уже было настроено (зеленый)
+      register: stow_result
+      changed_when: "'creating' in stow_result.stdout or 'linking' in stow_result.stdout"

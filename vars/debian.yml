@@ -1,0 +1,24 @@
+---
+# vars/debian.yml
+
+# Базовые утилиты (в Ubuntu это называется build-essential)
+pkg_base:
+  - build-essential
+  - git
+  - stow
+  - curl
+
+# Графическое окружение
+pkg_sway:
+  - sway
+  - swaybg
+  - waybar
+  - alacritty
+  - wofi
+  - xwayland # Обратите внимание, название пакета отличается от Arch!
+
+# Микроконтроллеры (ARM)
+pkg_dev_embedded:
+  - gcc-arm-none-eabi
+  - libnewlib-arm-none-eabi # И здесь названия отличаются
+  - openocd

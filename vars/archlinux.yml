@@ -1,0 +1,23 @@
+---
+pkg_base:
+  - base-devel
+  - git
+  - stow
+  - curl
+  - polkit
+
+pkg_sway:
+  - sway
+  - swaybg
+  - waybar
+  - alacritty
+  - wofi
+
+pkg_work:
+  - arm-none-eabi-gcc
+  # - arm-none-eabi-newlib
+  - openocd
+  # - dnsmasq
+  # - sing-box
+  # - typst
+  - obsidian
