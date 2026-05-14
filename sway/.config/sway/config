@@ -24,6 +24,12 @@ set $term alacritty
 
 exec_always ~/.config/sway/run_autotiling
 
+# Экспортируем переменные окружения для DBus (очень важно для Wayland)
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+
+# Запускаем связку ключей
+exec gnome-keyring-daemon --start --components=secrets
+
 set $menu "rofi -combi-modi window,drun,ssh,run -show combi -show-icons"
 for_window [app_id="Launcher"] floating enable, border pixel 10, sticky enable
 bindsym --to-code $mod+d exec $menu
