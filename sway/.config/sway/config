@@ -28,6 +28,9 @@ workspace 1 output DP-3
 # Второй монитор (Справа, повернут вертикально)
 output HDMI-A-1 resolution 1920x1080 position 2560,0 transform 270
 
+# Включение и отключение второго монитора
+output HDMI-A-1 disable
+bindsym $mod+Shift+m output HDMI-A-1 toggle
 
 # ==========================================
 # УСТРОЙСТВА ВВОДА (INPUTS)
