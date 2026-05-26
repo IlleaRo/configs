@@ -42,7 +42,7 @@ input * {
 # АВТОЗАПУСК (AUTOSTART)
 # ==========================================
 # Системные службы
-exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway
 exec gnome-keyring-daemon --start --components=secrets
 exec_always ~/.config/sway/run_autotiling
 
@@ -62,7 +62,7 @@ exec swayidle -w \
 # ==========================================
 bindsym --to-code $mod+Return exec $term
 bindsym --to-code $mod+d exec $menu
-bindsym --to-code $mod+e exec foot --app-id yazi-fm yazi
+bindsym --to-code $mod+e exec thunar
 bindsym --to-code $mod+q kill
 bindsym --to-code $mod+Shift+c reload
 bindsym --to-code $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway?' -B 'Yes, exit sway' 'swaymsg exit'
@@ -105,6 +105,9 @@ bindsym --to-code $mod+Shift+Left move left
 bindsym --to-code $mod+Shift+Down move down
 bindsym --to-code $mod+Shift+Up move up
 bindsym --to-code $mod+Shift+Right move right
+# Мгновенный перенос окна на конкретный монитор
+bindsym $mod+Shift+Ctrl+Right move container to output HDMI-A-1
+bindsym $mod+Shift+Ctrl+Left move container to output DP-3
 
 # Управление Layout
 bindsym --to-code $mod+b splith
@@ -204,3 +207,5 @@ for_window [app_id="firefox" title="Library"] floating enable, border pixel 1, s
 
 # Системные инклуды (оставляем в самом конце)
 include /etc/sway/config.d/*
+
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
